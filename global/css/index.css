@@ -1,0 +1,35 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Montserrat;
+    border: 0px;
+    color: #fff;
+}
+
+:root {
+    --color-primary: #fff;
+    --color-secondary: #a29bfe;
+    --color-sub-secondary: #6c5ce7;
+    --color-sub-secondary02: #938eda;
+    --color-sub-secondary03: #7b73e9;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.text {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.subtext {
+    font-size: 0.6rem;
+    font-weight: 500;
+}

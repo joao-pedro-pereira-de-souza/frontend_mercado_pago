@@ -2,9 +2,10 @@
   "name": "frontend_mercado_pago",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx browser-sync --port 3001 -w"
   },
   "engines": {
     "vscode": "^1.22.0"
