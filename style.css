@@ -1,0 +1,138 @@
+
+#products {
+    height: 100vh;
+}
+
+
+header {
+    display: flex;
+    width: 100%;
+    background-color: var(--color-secondary);
+    height: 5rem;
+    flex-direction: row;
+    align-items: center;
+}
+
+header .content_buttons {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+}
+
+#btn_header_home, #btn_header_project, #btn_header_chat {
+    margin: 0px 5px;
+    color: var(--color-sub-secondary);
+}
+
+.content_home {
+    padding: 0px 70px;
+}
+
+.content_home .content_text01 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 500px;
+}
+
+.content_home .content_text01 p {
+    color: var(--color-sub-secondary);
+}
+
+.content_home .content_text01 img {
+    height: 100%;
+}
+
+.content_home .content_text01:nth-child(2) img {
+   height: 60%;
+   margin-right: 30px;
+}
+
+.content_products {
+    width: 100%;
+    background-color: var(--color-secondary);
+    height: 60vh;
+}
+
+
+.content_products h1 {
+    padding-top: 20px;
+    color: var(--color-primary);
+    padding-left: 70px;
+}
+
+.container_products {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 95%;
+    height: 400px;
+}
+
+.pages_products {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+#products{
+    width: 100%;
+    display: flex;
+    flex: 1;
+    overflow: auto;
+    flex-direction: row;
+}
+
+.content_product {
+    height: 100%;
+    min-width: 230px;
+    background-color: brown;
+    margin-right: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+
+.content_product img {
+    width: 100%;
+    height: 50%;
+    transition: transform 0.3s ease;
+}
+
+.content_product .content_texts{
+    padding: 10px;
+}
+
+.content_product .content_texts p:nth-child(1){
+    margin-bottom: 3px;
+}
+
+.content_product:hover img{
+    transform: scale(1.1);
+}
+
+
+#products::-webkit-scrollbar {
+    width: 100%;
+    height: 11px;
+}
+
+#products::-webkit-scrollbar-thumb {
+    background-color: var(--color-sub-secondary02);
+    border-radius: 2px; 
+}
+
+#products::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-sub-secondary03); 
+}
+
+#products::-webkit-scrollbar-track {
+    background-color: var(--color-sub-secondary); 
+    border-radius: 2px;
+}
+
+#products::-webkit-scrollbar-horizontal {
+    height: 11px;
+}

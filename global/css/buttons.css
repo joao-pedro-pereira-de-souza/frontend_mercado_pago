@@ -1,0 +1,31 @@
+.button_cicle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: #b5afff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.button_cicle02 {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: #b5afff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.button_cicle:hover, .button_cicle02:hover  {
+    background: #8476ec;
+}
+
+.button_cicle:active, .button_cicle02:active {
+    background: #b5afff;
+}
+
