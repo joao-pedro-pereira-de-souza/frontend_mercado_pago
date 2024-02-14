@@ -1,5 +1,6 @@
+import AlertMessage from './src/components/alerts/index.js';
+import ElementProduct from './src/components/cards/product/index.js';
 
-const heigthDom = document.documentElement.scrollHeight;
 
 const content_products = document.getElementById('products');
 const btn_header_home = document.getElementById('btn_header_home');
@@ -7,9 +8,16 @@ const btn_header_products = document.getElementById('btn_header_project');
 
 async function init() {
      Envents()
-    const response =  ( await (await fetch('./mocks/products.json')).json());
-    const dataProducts = response.data;
 
+     // const sendMessageAlert = {
+     //      message: 'teste',
+     //      status: 404
+     // }
+
+     // AlertMessage(sendMessageAlert);
+
+     const response =  ( await (await fetch('./mocks/products.json')).json());
+     const dataProducts = response.data;
      LoadProductElements(dataProducts);
 }
 
@@ -20,49 +28,33 @@ async function init() {
 function LoadProductElements(data){
 
      for(const product of data){
-          const elementDivProduct = document.createElement('div');
-          elementDivProduct.classList.add('content_product');
+          // const elementDivProduct = document.createElement('div');
+          // elementDivProduct.classList.add('content_product');
   
-          const elementProductImg = document.createElement('img');
-          elementProductImg.src = product.url;
+          // const elementProductImg = document.createElement('img');
+          // elementProductImg.src = product.url;
   
-          const paramsContentTexts = {
+          // const paramsContentTexts = {
+          //      title: product.title,
+          //      description: product.description
+          // }
+          // const elementDivContentText = LoadDivTextsProducts(paramsContentTexts);
+  
+          // elementDivProduct.appendChild(elementProductImg);
+          // elementDivProduct.appendChild(elementDivContentText);
+
+          const paramsComponentProducts = {
                title: product.title,
-               description: product.description
+               description: product.description,
+               image: product.url,
+               eventClick: () => {}
           }
-          const elementDivContentText = LoadDivTextsProducts(paramsContentTexts);
   
-          elementDivProduct.appendChild(elementProductImg);
-          elementDivProduct.appendChild(elementDivContentText);
-  
-          content_products.appendChild(elementDivProduct);
+          const elementProduct = ElementProduct(paramsComponentProducts)
+          content_products.appendChild(elementProduct);
   
   
      }
-}
-
-/**
- * @param { Object } params
- * @param { String } params.title
- * @param { String } params.description
- * @returns { HTMLDivElement }
- */
-function LoadDivTextsProducts(params){
-     const elementDivContentText = document.createElement('div');
-     elementDivContentText.classList.add('content_texts');
-      
-     const elementTextSubtitle = document.createElement('p');
-     elementTextSubtitle.classList.add('subtitle');
-     elementTextSubtitle.innerText = params.title;
-
-     const elementTextSubtext = document.createElement('p');
-     elementTextSubtext.classList.add('subtext');
-     elementTextSubtext.innerText = params.description;
-
-     elementDivContentText.appendChild(elementTextSubtitle);
-     elementDivContentText.appendChild(elementTextSubtext);
-
-     return elementDivContentText;
 }
 
 function EventBtnHeaderHome(){
@@ -70,8 +62,7 @@ function EventBtnHeaderHome(){
      window.scrollTo({
           top: topScrollHome,
           behavior: 'smooth'
-        });
-        
+        });  
 }
 
 function EventBtnHeaderProducts(){
