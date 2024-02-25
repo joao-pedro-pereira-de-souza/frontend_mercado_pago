@@ -1,0 +1,40 @@
+footer {
+    width: 100%;
+    height: 15rem;
+    background-color: var(--color-background-secondary);
+    display: flex;
+    align-items: center;
+}
+
+footer .container_itens {
+    padding: 0px 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+footer .container_itens .container_redes button {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+footer .container_itens .container_redes h1 {
+    margin-bottom: 0.5rem;
+}
+
+
+footer .container_itens .container_redes button i {
+    font-size: 1.5rem;
+    margin: 0px 0.2rem;
+    color: var(--color-01);
+}
+
+
+footer .container_itens .container_redes button:hover i {
+    color: var(--color-04);
+}
+
+footer .container_itens img {
+    width: 10rem
+}
