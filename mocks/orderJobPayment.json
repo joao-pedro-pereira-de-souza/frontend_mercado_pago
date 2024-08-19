@@ -1,0 +1,125 @@
+{
+  "preference": {
+    "additional_info": "",
+    "auto_return": "",
+    "back_urls": {
+      "failure": "https://1afd-2804-1b3-af43-cde6-7df6-5368-ef23-2aab.ngrok-free.app/payments/failure",
+      "pending": "",
+      "success": "https://1afd-2804-1b3-af43-cde6-7df6-5368-ef23-2aab.ngrok-free.app/payments/success"
+    },
+    "binary_mode": false,
+    "client_id": "8389777617566211",
+    "collector_id": 662535518,
+    "coupon_code": null,
+    "coupon_labels": null,
+    "date_created": "2024-08-14T12:58:34.306-04:00",
+    "date_of_expiration": null,
+    "expiration_date_from": "2024-08-14T16:58:33.484+00:00",
+    "expiration_date_to": "2024-08-14T17:08:33.484+00:00",
+    "expires": true,
+    "external_reference": "",
+    "id": "662535518-a5fe1b12-6143-4356-aa15-bf3671e86239",
+    "init_point": "https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=662535518-a5fe1b12-6143-4356-aa15-bf3671e86239",
+    "internal_metadata": null,
+    "items": [
+      {
+        "id": "d36fa868-e898-4494-ac34-080864e850f0",
+        "category_id": "",
+        "currency_id": "BRL",
+        "description": "",
+        "title": "Produto sem descrição",
+        "quantity": 10,
+        "unit_price": 50
+      }
+    ],
+    "marketplace": "NONE",
+    "marketplace_fee": 0,
+    "metadata": {},
+    "notification_url": null,
+    "operation_type": "regular_payment",
+    "payer": {
+      "phone": {
+        "area_code": "",
+        "number": ""
+      },
+      "address": {
+        "zip_code": "",
+        "street_name": "",
+        "street_number": null
+      },
+      "email": "johnqa12@gmail.com",
+      "identification": {
+        "number": "555.835.315-50",
+        "type": "CPF"
+      },
+      "name": "joao",
+      "surname": "",
+      "date_created": null,
+      "last_purchase": null
+    },
+    "payment_methods": {
+      "default_card_id": null,
+      "default_payment_method_id": null,
+      "excluded_payment_methods": [
+        {
+          "id": ""
+        }
+      ],
+      "excluded_payment_types": [
+        {
+          "id": ""
+        }
+      ],
+      "installments": null,
+      "default_installments": null
+    },
+    "processing_modes": null,
+    "product_id": null,
+    "redirect_urls": {
+      "failure": "",
+      "pending": "",
+      "success": ""
+    },
+    "sandbox_init_point": "https://sandbox.mercadopago.com.br/checkout/v1/redirect?pref_id=662535518-a5fe1b12-6143-4356-aa15-bf3671e86239",
+    "site_id": "MLB",
+    "shipments": {
+      "default_shipping_method": null,
+      "receiver_address": {
+        "zip_code": "",
+        "street_name": "",
+        "street_number": null,
+        "floor": "",
+        "apartment": "",
+        "city_name": null,
+        "state_name": null,
+        "country_name": null
+      }
+    },
+    "total_amount": null,
+    "last_updated": null,
+    "financing_group": "",
+    "api_response": {
+      "status": 201,
+      "headers": {
+        "date": ["Wed, 14 Aug 2024 16:58:34 GMT"],
+        "content-type": ["application/json; charset=utf-8"],
+        "content-length": ["905"],
+        "connection": ["keep-alive"],
+        "content-encoding": ["gzip"],
+        "vary": ["Accept-Encoding"],
+        "x-content-type-options": ["nosniff"],
+        "x-request-id": ["7f648ae1-0fbe-414a-a15e-c18fc598307c"],
+        "x-xss-protection": ["1; mode=block"],
+        "strict-transport-security": [
+          "max-age=16070400; includeSubDomains; preload"
+        ],
+        "access-control-allow-origin": ["*"],
+        "access-control-allow-headers": ["Content-Type"],
+        "access-control-allow-methods": ["PUT, GET, POST, DELETE, OPTIONS"],
+        "access-control-max-age": ["86400"],
+        "timing-allow-origin": ["*"]
+      }
+    }
+  },
+  "key_order": "order@d36fa868-e898-4494-ac34-080864e850f0@option=15097e1f-9c4b-46a2-9772-d00d149c6fda:f2bf91d4-e3ce-4b0d-9d24-42888952683f"
+}
