@@ -1,9 +1,12 @@
+import ProductService from "../../../../../services/product.service.js";
+
 export default class ProductHoneyPot {
+  #productService;
   #elements;
   #value_select_product_honey_pot = 0;
 
   /**
-   *
+   * @param { ProductService } productService
    * @param {Object} elements
    * @param {Element} elements.elementImgImage
    * @param {Element} elements.elementH1Title
@@ -12,7 +15,8 @@ export default class ProductHoneyPot {
    * @param {Element} elements.elementDivContainerViewer
    * @param {Element} elements.elementDivContainer
    */
-  constructor(elements) {
+  constructor(productService, elements) {
+    this.#productService = productService;
     this.#elements = elements;
   }
 
@@ -101,9 +105,10 @@ export default class ProductHoneyPot {
 
       element_value_bar.style.width = valuePercentagem + "%";
 
-      this.#elements.elementH3Value.textContent = Math.max(
-        this.#value_select_product_honey_pot.toFixed(2)
-      );
+      const price = Math.max(this.#value_select_product_honey_pot.toFixed(2));
+      this.#productService.price_selected = price;
+
+      this.#elements.elementH3Value.textContent = price;
 
       this.#updateValueLiquidPot(params.elementLiquid, valuePercentagem);
     } else {
@@ -114,9 +119,10 @@ export default class ProductHoneyPot {
         this.#value_select_product_honey_pot =
           params.value_ml * value_scroll_ml;
         element_value_bar.style.width = valuePercentagem + "%";
-        this.#elements.elementH3Value.textContent = Math.max(
-          this.#value_select_product_honey_pot.toFixed(2)
-        );
+
+        const price = Math.max(this.#value_select_product_honey_pot.toFixed(2));
+        this.#productService.price_selected = price;
+        this.#elements.elementH3Value.textContent = price;
         this.#updateValueLiquidPot(params.elementLiquid, valuePercentagem);
       }
     }

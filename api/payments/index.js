@@ -2,6 +2,8 @@ import Api from '../index.js';
 
 export default class Payments {
   /**
+   *
+   *
    * @typedef {Object} ProductData
    * @property {string} id_product
    * @property {string} type_product
@@ -45,16 +47,23 @@ export default class Payments {
    */
 
   /**
+   * @param { Object } params
+   * @param { String } params.id_product
+   * @param { String } params.type_product
+   * @param { String } [params.id_option_product]
+   * @param { String } params.amount
+   * @param { String } params.id_client
+   *
    * Retorna os dados do processo de pagamento.
    * @returns {Promise<Response>} O objeto de resposta contendo os dados do processo e uma mensagem.
    */
-  async create() {
+  async create(params) {
     const mockBodySend = {
-      id_product: "d36fa868-e898-4494-ac34-080864e850f0",
-      type_product: "product_bee",
-      id_option_product: "15097e1f-9c4b-46a2-9772-d00d149c6fda",
-      amount: 10,
-      id_client: "c1c6eb93-ce84-44f0-9afa-678bb4a2e296",
+      id_product: params.id_product,
+      type_product: params.type_product,
+      id_option_product: params.id_option_product,
+      amount: params.amount || 1,
+      id_client: params.id_client,
     };
     const response = await Api.fetchBase(
       "/products/payments",

@@ -1,5 +1,4 @@
 import Api from "../api/index.js";
-import GatewayMercadoPago from "../gateways/mercadopago/index.js";
 
 export default class OrderService {
   #api;
@@ -11,8 +10,17 @@ export default class OrderService {
     this.#api = api;
   }
 
-  async create() {
-    const { data } = await this.#api.payments.create();
+  /**
+   *
+   * @param { Object } params
+   * @param { String } params.id_product
+   * @param { String } params.type_product
+   * @param { String } [params.id_option_product]
+   * @param { String } params.amount
+   * @param { String } params.id_client
+   */
+  async create(params) {
+    const { data } = await this.#api.payments.create(params);
     const { id } = data.proccess;
     return { id };
   }

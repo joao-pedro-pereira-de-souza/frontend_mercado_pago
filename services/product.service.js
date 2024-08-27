@@ -1,16 +1,19 @@
 import Api from '../api/index.js';
 
 export default class ProductService {
-
-  #api
+  price_selected;
+  id_product_selected;
+  id_option_product_selected;
+  type_selected;
+  #api;
   /**
    * @param { Api } api
    */
-   constructor(api) {
-     this.#api = api
+  constructor(api) {
+    this.#api = api;
   }
 
-   async getAllGroupedByType() {
-     return this.#api.products.getAllGroupedByType()
+  async getAllGroupedByType() {
+    return this.#api.products.getAllGroupedByType();
   }
 }

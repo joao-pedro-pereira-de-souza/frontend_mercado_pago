@@ -1,10 +1,13 @@
 import Payments from './payments/index.js';
 import Products from './products/index.js';
+import Auth from './auth/index.js';
+
 export default class Api {
 
    constructor() {
       this.payments = new Payments();
       this.products = new Products();
+      this.auth = new Auth();
    }
 
    /**

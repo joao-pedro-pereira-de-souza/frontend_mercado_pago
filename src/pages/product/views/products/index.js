@@ -65,16 +65,22 @@ export default class Products {
 
     if (type_product === "product_hive") {
       const { product_hive } = products;
+      this.#productsService.type_selected = "product_hive";
+
       this.#productHiveView.render(product_hive);
     }
 
     if (type_product === "product_honey_pot") {
       const { product_honey_pot } = products;
       this.#productHoneyPotView.render(product_honey_pot);
+
+      this.#productsService.type_selected = 'product_honey_pot';
+      this.#productsService.id_product_selected = product_honey_pot.id;
     }
 
     if (type_product === "product_bee") {
       const { product_bee } = products;
+      this.#productsService.type_selected = 'product_bee';
       this.#productBeeView.render(product_bee);
     }
   }

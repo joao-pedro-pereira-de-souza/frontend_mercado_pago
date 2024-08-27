@@ -26,22 +26,22 @@ export default class Products {
         maximum_ml: 1200,
       },
       product_bee: {
-        id: 3,
+        id: "d36fa868-e898-4494-ac34-080864e850f0",
         title: "Abelha",
         type: "product_bee",
         value: "50.00",
         amount: 300,
         options: [
           {
-            id: 1,
+            id: "15097e1f-9c4b-46a2-9772-d00d149c6fda",
             image: "http://localhost:3001/assets/images/abelha-jandaira.jpg",
             title: "Abelha Jandaira",
-            value: 30.0,
+            value: 2230.0,
             description:
               " A loja especializada em produtos relacionados à apicultura oferece uma variedade de itens artesanais, incluindo colmeias, potes de mel e abelhas. Com um enfoque em produtos de qualidade e produção caseira, os clientes podem encontrar uma seleção diversificada de colmeias feitas à mão, projetadas para atender às necessidades de diferentes tipos de apicultores, desde iniciantes até experientes. Além disso, a loja oferece uma ampla gama de potes de mel, variando em tamanhos, formas e estilos, todos produzidos com ingredientes naturais e cuidadosamente selecionados. Esses potes de mel são ideais tanto para uso pessoal quanto para presentear, garantindo a autenticidade e a qualidade do produto.",
           },
           {
-            id: 2,
+            id: "a6cc4b84-49ad-4955-8ec9-9c2060df976e",
             image:
               "http://localhost:3001/assets/images/abelha-urussu-urucu.jpg",
             title: "Abelha Urussu",
@@ -50,7 +50,7 @@ export default class Products {
               " A loja especializada em produtos relacionados à apicultura oferece uma variedade de itens artesanais, incluindo colmeias, potes de mel e abelhas. Com um enfoque em produtos de qualidade e produção caseira, os clientes podem encontrar uma seleção diversificada de colmeias feitas à mão, projetadas para atender às necessidades de diferentes tipos de apicultores, desde iniciantes até experientes. Além disso, a loja oferece uma ampla gama de potes de mel, variando em tamanhos, formas e estilos, todos produzidos com ingredientes naturais e cuidadosamente selecionados. Esses potes de mel são ideais tanto para uso pessoal quanto para presentear, garantindo a autenticidade e a qualidade do produto.",
           },
           {
-            id: 3,
+            id: "c0864228-ed20-430d-8cf1-8f29152d0bec",
             image:
               "http://localhost:3001/assets/images/abelhas-mandassaia-mandacaia.jpg",
             title: "Abelha Mandassaia",

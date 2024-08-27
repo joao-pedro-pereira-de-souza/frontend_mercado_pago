@@ -1,10 +1,15 @@
 
-import ProductServer from '../../../../services/product.service.js';
+import ProductService from '../../../../services/product.service.js';
 
 import ProductView from './products/index.js';
 import ProductBeeView from "./products/productBee.view.js";
 import ProductHiveView from "./products/productHive.view.js";
 import ProductHoneyPotView from "./products/productHoneyPot.view.js";
+
+import EventsListeners from './events/index.js';
+import PaymentService from '../../../../services/payment.service.js';
+
+import AuthModalComponent from '../../../components/modals/form-auth/form-auth.modal.js';
 
 export default class View {
   #elementDivContainerViewer = document.querySelector(
@@ -21,17 +26,23 @@ export default class View {
   #elementH2TitleImgSelect = document.getElementById("name_option_selected");
 
   #elementDivContainer = document.querySelector(".container_details");
+
   #elementBtnPayment = document.getElementById("btn_payment");
 
   #params = new URLSearchParams(window.location.search);
 
   #productView;
+  #eventsListeners;
 
   /**
-   *
-   * @param {ProductServer} productServer
+   *@param { Object } params
+   * @param {ProductService} params.productService
+   * @param {EventsSockets} params.eventsSockets
+   * @param {PaymentService} params.paymentService
+   * @param {AuthModalComponent} params.authModalComponent
+   * @
    */
-  constructor(productService) {
+  constructor(params) {
     const allElements = {
       elementH1Title: this.#elementH1Title,
       elementH3Value: this.#elementH3Value,
@@ -42,21 +53,42 @@ export default class View {
       elementDivContainerViewer: this.#elementDivContainerViewer,
     };
 
-    const productBeeView = new ProductBeeView(allElements);
-    const productHiveView = new ProductHiveView(allElements);
-    const productHoneyPotView = new ProductHoneyPotView(allElements);
+    const productBeeView = new ProductBeeView(
+      params.productService,
+      allElements
+    );
+    const productHiveView = new ProductHiveView(
+      params.productService,
+      allElements
+    );
+    const productHoneyPotView = new ProductHoneyPotView(
+      params.productService,
+      allElements
+    );
 
     this.#productView = new ProductView(
-      productService,
+      params.productService,
       productBeeView,
       productHoneyPotView,
       productHiveView,
       this.#params
     );
+
+    const paramsEventsListeners = {
+      elements: {
+        elementBtnPayment: this.#elementBtnPayment,
+      },
+      eventsSockets: params.eventsSockets,
+      paymentService: params.paymentService,
+      productService: params.productService,
+      authModalComponent: params.authModalComponent,
+    };
+
+    this.#eventsListeners = new EventsListeners(paramsEventsListeners);
   }
 
   render() {
     this.#productView.render();
-
+    this.#eventsListeners.listeners();
   }
 }

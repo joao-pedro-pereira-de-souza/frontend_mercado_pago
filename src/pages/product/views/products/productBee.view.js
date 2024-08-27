@@ -1,8 +1,10 @@
+import ProductService from "../../../../../services/product.service.js";
 export default class ProductBee {
   #elements;
-
+  #productService;
   #elementsSelectOptions = [];
   /**
+   * @param { ProductService } productService
    * @param { Object } elements
    * @param { Element } elements.elementH1Title
    * @param { Element } elements.elementH3Value
@@ -11,13 +13,22 @@ export default class ProductBee {
    * @param { Element } elements.elementH2TitleImgSelect
    * @param { Element } elements.elementDivContainer
    */
-  constructor(elements) {
+  constructor(productService, elements) {
+    this.#productService = productService;
     this.#elements = elements;
   }
 
   /**
+   * @param { Object } params
+   * @param { String } params.id_product
+   * @param { String } params.id_product
+   */
+  save() {}
+
+  /**
    * @param { String } id_option
    * @param { Object } data
+   * @param { String } data.id
    * @param { String } data.title
    * @param { String } data.image
    * @param { Number } data.value
@@ -39,6 +50,9 @@ export default class ProductBee {
     this.#elements.elementH2TitleImgSelect.innerText = data.title;
     this.#elements.elementPDescription.textContent = data.description;
     this.#elements.elementH3Value.textContent = data.value;
+
+    this.#productService.price_selected = data.value;
+    this.#productService.id_option_product_selected = data.id;
   }
 
   #loadElementSelectOptions(params) {
@@ -67,16 +81,24 @@ export default class ProductBee {
     );
   }
 
-   /**
-    *
-    * @param {Object} product_bee
-    */
+  /**
+   *
+   * @param {Object} product_bee
+   * @param {String} product_bee.id
+   * @param {Array<{id: String, title: String, image: String}>} product_bee.options
+   */
   async render(product_bee) {
     const optionAutoSelect = product_bee.options[0];
+    this.#productService.id_product_selected = product_bee.id;
 
     this.#elements.elementH1Title.textContent = product_bee.title;
     this.#elements.elementH3Value.textContent = optionAutoSelect.value;
-    this.#elements.elementPDescription.textContent = optionAutoSelect.description;
+
+    this.#productService.price_selected = optionAutoSelect.value;
+    this.#productService.id_option_product_selected = optionAutoSelect.id;
+
+    this.#elements.elementPDescription.textContent =
+      optionAutoSelect.description;
     this.#elements.elementImgImage.src = optionAutoSelect.image;
     this.#elements.elementH2TitleImgSelect.innerText = optionAutoSelect.title;
 
