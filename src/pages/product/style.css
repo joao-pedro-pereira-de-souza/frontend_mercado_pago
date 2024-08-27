@@ -1,0 +1,229 @@
+body {
+    height: 100vh;
+    background-color: var( --color-background);
+}
+
+.container_home {
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.container_home h1 {
+    font-size: 3rem;
+    margin-left: 5rem;
+}
+
+.container_home .container_viewer_product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container_home .container_viewer_product h2 {
+    margin-bottom: 10px;
+}
+
+.container_home .container_viewer_product #viewer_product_img {
+    height: 40rem;
+    max-width: 90rem;
+}
+
+.container_details {
+    padding: 5rem 5rem;
+}
+
+.container_details .container_text .container_price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.container_details .container_text .container_price h3:nth-child(1), h3:nth-child(2) {
+    font-size: 1.8rem;
+    
+}
+
+.container_details .container_text .container_price h3:nth-child(1) {
+    margin-right: 5px;
+    font-family: 'OpenSans';
+}
+
+.container_details .container_text .container_price h3:nth-child(2){
+    font-family: 'Pacifico';
+}
+
+.container_details .container_text p {
+    margin-top: 0.5rem;
+    text-align: justify;
+    font-size: 1.4rem;
+}
+
+.container_details .btn_horizontal_01 {
+    margin-top: 6rem;
+}
+.btn_horizontal_01 {
+    width: 12rem;
+    height: 3.5rem;
+    background-color: var(--color-background-secondary);
+    border-radius: 5%;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+}
+
+.btn_horizontal_01 p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'OpenSans';
+    margin-left: 10px;
+}
+
+.btn_horizontal_01 img {
+   width: 3rem;
+   margin-left: 10px;
+   transition: transform 0.8s ease-in-out;
+}
+
+.container_details .container_options {
+    background-color: var(--color-background-secondary);
+    width: 100%;
+    height: 13rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: auto;
+}
+
+.container_details .container_options img {
+    height: 10rem;
+    margin: 0px 0.5rem;
+    cursor: pointer;
+}
+
+.btn_horizontal_01:hover img {
+    transform: rotate(360deg);
+}
+
+.btn_horizontal_01:hover {
+    background-color: var( --color-background-secondary02);
+}
+
+.imgSelected {
+    border: 1px solid var(--color-01);
+}
+
+.container_details .container_options img:hover{
+    border: 1px solid var(--color-01);
+}
+
+.container_details .container_value_bar {
+    width: 100%;
+    height: 2rem;
+    background-color: var(--color-background-secondary);
+
+    display: flex;
+    flex-direction: row;
+}
+
+.container_details .container_value_bar .bar_value {
+    height: 100%;
+    background-color: var(--color-01);
+}
+
+
+.container_details .container_value_bar .cursor_bar {
+    height: 100%;
+    padding: 0px 0.4rem;
+    background-color: var(--color-02);
+    cursor: e-resize;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_details .container_value_bar .cursor_bar i {
+    color: var(--color-background);
+    font-size: 0.7rem;
+    transform: rotate(90deg);
+}
+
+.glass {
+    position: relative;
+}
+
+.glass .inner {
+    position: relative;
+    width: 200px;
+    height: 400px;
+
+    background: rgba(255,255,255, 0.1);
+
+    border-radius: 40px;
+    border: 8px solid transparent;
+}
+
+.glass .inner::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 10px);
+    height: 30px;
+    border: 10px solid #444;
+    border-radius: 50%;
+
+    box-shadow: 0 15px 0 #4d4b4b;
+}
+
+.glass .inner::after {
+    content: '';
+    position: absolute;
+    top: 70px;
+    left:30px;
+    width: 50px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px
+}
+
+.liquid {
+    position: absolute;
+    top: var(--value_progress_pot);
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background: var(--color-01);
+
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    /* animation-delay: 1s; */
+}
+
+/* @keyframes animateLiquid {
+    0%,20% {
+        top:50px
+    }
+    50%, 70% {
+        top:320px
+    }
+
+    100% {
+        top:50px
+    }
+} */
+
+.liquid::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-07);
+
+}

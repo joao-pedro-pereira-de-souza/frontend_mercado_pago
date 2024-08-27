@@ -1,35 +1,67 @@
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-VariableFont_wdth\,wght.ttf');
+}
+
+@font-face {
+    font-family: 'Courgette';
+    src: url('../fonts/Courgette-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Pacifico';
+    src: url('../fonts/Pacifico-Regular.ttf');
+}
+
+
 * {
     margin: 0px;
     padding: 0px;
-    font-family: Montserrat;
+    font-family: 'Courgette';
     border: 0px;
-    color: #fff;
+    color: var(--color-02);
 }
 
 :root {
-    --color-primary: #fff;
-    --color-secondary: #a29bfe;
-    --color-sub-secondary: #6c5ce7;
-    --color-sub-secondary02: #938eda;
-    --color-sub-secondary03: #7b73e9;
+    --color-background: #3d3d3d;
+    --color-background-secondary: #454545;
+    --color-background-secondary02: #5a5959;
+    --color-01: #ffda79;
+    --color-02: #fff;
+    --color-03: #d8d8d8;
+    --color-04: #ffaf40;
+    --color-05: #e74c3c;
+    --color-06: #00bbfe;
+    --color-07: #ccaf64;
+
 }
 
 .title {
-    font-size: 2rem;
+    font-family: 'Pacifico';
+    font-size: 3.5rem;
     font-weight: bold;
 }
 
 .subtitle {
-    font-size: 0.8rem;
-    font-weight: 800;
+    font-family: 'Pacifico';
+    font-size: 18pt;
+    font-weight: bold;
 }
 
 .text {
-    font-size: 1rem;
+    font-family: 'Courgette';
+    font-size: 14pt;
     font-weight: 500;
 }
 
 .subtext {
-    font-size: 0.6rem;
+    font-family: 'Courgette';
+    font-size: 12pt;
     font-weight: 500;
+}
+
+.box_shadow_01 {
+    -webkit-box-shadow: 1px 1px 29px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 29px -8px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 29px -8px rgba(0,0,0,0.75);
 }

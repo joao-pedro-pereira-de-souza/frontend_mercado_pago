@@ -5,12 +5,17 @@
   "main": "./src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx browser-sync --port 3001 -w"
+    "dev": "npx http-server --port 3001 -w",
+    "dev1": "npx browser-sync --port 3001 -w"
   },
   "engines": {
     "vscode": "^1.22.0"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "node": "^22.6.0"
+  }
 }
