@@ -6,6 +6,7 @@ export default class StorageClient {
    * @param { String } data.name
    * @param { String } data.email
    * @param { String } data.image
+   * @param { String } data.token
    */
   static save(data) {
     window.localStorage.setItem("client", JSON.stringify(data));
@@ -15,8 +16,10 @@ export default class StorageClient {
    * @typedef { Object } Response
    * @property { String } Response.name
    * @property { String } Response.email
-   * @property { String } Response.photo
+   * @property { String } Response.image
    * @property { String } Response.id
+   * @property { String } Response.token
+   *
    */
 
   /**

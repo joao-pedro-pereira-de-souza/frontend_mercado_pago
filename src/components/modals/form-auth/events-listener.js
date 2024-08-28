@@ -12,6 +12,7 @@ export default class EventsListeners {
   #api;
   #authModalCompoment;
 
+  #isProcessBtnAuth = false;
   #elements;
   /**
    * @param { Object } params
@@ -41,9 +42,10 @@ export default class EventsListeners {
     const password = elementInputPassword.value;
 
     const response = await this.#api.auth.login(email, password)
-
-    if (response.status !== 201) {
-      alert(response.data.message);
+    if (response.status !== 200) {
+      alert(
+        `Ocorreu o erro abaixo ao efetuar o login: \n ${response.data.message}`
+      );
     }
 
     const dataSave = {
@@ -51,8 +53,11 @@ export default class EventsListeners {
       name: response.data.client.name,
       email: response.data.client.email,
       image: response.data.client.photo,
+      token: response.data.token
     };
     StorageClient.save(dataSave);
+
+    this.#authModalCompoment.exit();
   }
 
 
@@ -72,8 +77,17 @@ export default class EventsListeners {
       this.#executeExit()
     );
 
-    elementBtnAuth.addEventListener("click", () =>
-      this.#executeAuth()
+     elementBtnAuth.addEventListener("click", async () => {
+       if (!this.#isProcessBtnAuth) {
+         this.#isProcessBtnAuth = true;
+
+         await this.#executeAuth();
+
+        this.#isProcessBtnAuth = false;
+
+      }
+    }
+
     );
 
      elementLinkLoginAccountSendBox.addEventListener('click', () => this.#executeInjectSandboxData())
