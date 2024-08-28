@@ -17,23 +17,12 @@ class Main {
   #elementsAuth = new ElementsAuthenticationHeader();
 
   #view;
-  #paymentService;
-  #productService;
-
-  #elementBtnPayment = document.getElementById("btn_payment");
-
-  #events;
 
   /**
    * @param { View } view
-   * @param {PaymentService} paymentService
-   * @param {ProductService} productService
    */
-  constructor(view, paymentService, productService) {
-
+  constructor(view) {
     this.#view = view;
-    this.#paymentService = paymentService;
-    this.#productService = productService;
   }
 
 
@@ -66,6 +55,7 @@ const paramsView = {
 };
 
 const view = new View(paramsView);
-const main = new Main(view, paymentService, productService);
+
+const main = new Main(view);
 
 main.init()

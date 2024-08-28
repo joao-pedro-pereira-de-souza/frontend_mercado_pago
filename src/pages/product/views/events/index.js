@@ -4,6 +4,7 @@ import PaymentService from "../../../../../services/payment.service.js";
 import ProductService from "../../../../../services/product.service.js";
 import AuthModalComponent from '../../../../components/modals/form-auth/form-auth.modal.js';
 
+import SpinnerBtnPaymentEffect from '../effects/spinner_btn_payment.js';
 
 export default class Events {
   #eventBtnPayment;
@@ -16,14 +17,19 @@ export default class Events {
    * @param { PaymentService } params.paymentService
    * @param { ProductService } params.productService
    * @param { AuthModalComponent } params.authModalComponent
+   * @param { SpinnerBtnPaymentEffect } params.spinnerBtnPaymentEffect
    */
   constructor(params) {
     const paramsEventBtnPayment = {
-      element: params.elements.elementBtnPayment,
+      elements: {
+        elementButton: params.elements.elementBtnPayment,
+        elementISpinner: params.elements.elementISpinner,
+      },
       eventsSockets: params.eventsSockets,
       paymentService: params.paymentService,
       productService: params.productService,
       authModalComponent: params.authModalComponent,
+      spinnerBtnPaymentEffect: params.spinnerBtnPaymentEffect,
     };
 
     this.#eventBtnPayment = new EventBtnPayment(paramsEventBtnPayment);

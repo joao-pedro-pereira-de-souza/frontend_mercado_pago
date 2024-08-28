@@ -6,34 +6,46 @@ import ProductService from "../../../../../services/product.service.js";
 import StorageClient from '../../../../../services/storage-client.service.js';
 import AuthModalComponent from "../../../../components/modals/form-auth/form-auth.modal.js";
 
+import SpinnerBtnPaymentEffect from '../effects/spinner_btn_payment.js';
+
 export default class EventBtnPayments {
   #eventsSockets;
   #paymentService;
   #productService;
   #authModalComponent;
-  #element;
+  #elements;
+  #spinnerBtnPaymentEffect;
   /**
    * @param { Object } params
-   * @param { HTMLButtonElement } params.element
+   *
+   * @param { Object } params.elements
+   * @param { HTMLButtonElement } params.elements.elementButton
    * @param { EventsSockets } params.eventsSockets
    * @param { PaymentService } params.paymentService
    * @param { ProductService } params.productService
    * @param { AuthModalComponent } params.authModalComponent
+   *
+   * @param { SpinnerBtnPaymentEffect } params.spinnerBtnPaymentEffect
    */
   constructor(params) {
-    this.#element = params.element;
+    this.#elements = params.elements;
 
     this.#eventsSockets = params.eventsSockets;
     this.#paymentService = params.paymentService;
     this.#productService = params.productService;
     this.#authModalComponent = params.authModalComponent;
+
+    this.#spinnerBtnPaymentEffect = params.spinnerBtnPaymentEffect;
   }
 
   async #execute() {
     try {
+      this.#spinnerBtnPaymentEffect.show();
       const client = StorageClient.get();
 
       if (!client) {
+      this.#spinnerBtnPaymentEffect.hide();
+
         return this.#authModalComponent.show();
       }
 
@@ -47,12 +59,17 @@ export default class EventBtnPayments {
 
       const { id } = await this.#paymentService.orders.create(params);
       this.#eventsSockets.api.payments.onOrder(id, this.#paymentService);
+
+      this.#spinnerBtnPaymentEffect.hide();
+
     } catch (error) {
       alert("ocorreu um erro ao efetuar o pagamento.");
     }
   }
 
   event() {
-    this.#element.addEventListener("click", () => this.#execute());
+    this.#elements.elementButton.addEventListener("click", () =>
+      this.#execute()
+    );
   }
 }
