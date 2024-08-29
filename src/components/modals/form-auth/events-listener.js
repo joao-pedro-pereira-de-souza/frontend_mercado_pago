@@ -26,14 +26,6 @@ export default class EventsListeners {
     this.#api = params.api;
   }
 
-  executeAutoCompleteTrialAccount() {
-    const { elementInputEmail, elementInputPassword } =
-      this.#authModalCompoment.elements;
-
-    elementInputEmail.innerText = "account_send_box@gmail.com";
-    elementInputPassword.innerText = "password123";
-  }
-
   async #executeAuth() {
     const { elementInputEmail, elementInputPassword } =
       this.#authModalCompoment.elements;
