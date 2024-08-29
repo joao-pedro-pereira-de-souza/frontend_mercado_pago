@@ -8,6 +8,8 @@ import AuthModalComponent from "../../../../components/modals/form-auth/form-aut
 
 import SpinnerBtnPaymentEffect from '../effects/spinner_btn_payment.js';
 
+import ScrollPageMoviments from '../../../../../global/scripts/scroll_page.moviments.js';
+
 export default class EventBtnPayments {
   #eventsSockets;
   #paymentService;
@@ -44,8 +46,9 @@ export default class EventBtnPayments {
       const client = StorageClient.get();
 
       if (!client) {
-      this.#spinnerBtnPaymentEffect.hide();
+        this.#spinnerBtnPaymentEffect.hide();
 
+        ScrollPageMoviments.scrollToTopWindow(0);
         return this.#authModalComponent.show();
       }
 
@@ -58,9 +61,7 @@ export default class EventBtnPayments {
       };
 
       const { id } = await this.#paymentService.orders.create(params);
-      this.#eventsSockets.api.payments.onOrder(id, this.#paymentService);
-
-      this.#spinnerBtnPaymentEffect.hide();
+      this.#eventsSockets.api.payments.onOrder(id, this.#paymentService, this.#spinnerBtnPaymentEffect);
 
     } catch (error) {
       alert("ocorreu um erro ao efetuar o pagamento.");
