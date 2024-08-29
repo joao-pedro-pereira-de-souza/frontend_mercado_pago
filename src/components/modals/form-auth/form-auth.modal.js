@@ -31,6 +31,8 @@ export default class FormAuthModal {
     elementBtnAuth.style.fontSize = "18px";
     elementBtnAuth.style.margin = "5px 0px";
 
+    elementBtnAuth.style.cursor = "pointer";
+
     return elementBtnAuth;
   }
   static #createElementBtnExit() {
@@ -97,6 +99,8 @@ export default class FormAuthModal {
     elementContainerModal.style.top = "50%";
     elementContainerModal.style.left = "50%";
     elementContainerModal.style.transform = "translate(-50%, -50%)";
+
+    elementContainerModal.style.boxShadow = "10px 10px 20px rgba(0, 0, 0, 0.5)";
 
     const elementH1 = document.createElement("h1");
     elementH1.innerText = 'Login';
