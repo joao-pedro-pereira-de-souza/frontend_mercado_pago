@@ -11,6 +11,8 @@ import PaymentService from '../../../../services/payment.service.js';
 
 import AuthModalComponent from '../../../components/modals/form-auth/form-auth.modal.js';
 
+import SpinnerBtnPaymentEffect from './effects/spinner_btn_payment.js';
+
 export default class View {
   #elementDivContainerViewer = document.querySelector(
     ".container_home .container_viewer_product"
@@ -29,6 +31,8 @@ export default class View {
 
   #elementBtnPayment = document.getElementById("btn_payment");
 
+  #elementISpinnerBtnPayment = document.getElementById("spinner_btn_payment");
+  #elementImageBtnPayment = document.getElementById("image_btn_payment");
   #params = new URLSearchParams(window.location.search);
 
   #productView;
@@ -74,6 +78,13 @@ export default class View {
       this.#params
     );
 
+    const spinnerBtnPaymentEffect = new SpinnerBtnPaymentEffect({
+      elements: {
+        elementImageMercadoPago: this.#elementImageBtnPayment,
+        elementISpinner: this.#elementISpinnerBtnPayment,
+      },
+    });
+
     const paramsEventsListeners = {
       elements: {
         elementBtnPayment: this.#elementBtnPayment,
@@ -82,6 +93,7 @@ export default class View {
       paymentService: params.paymentService,
       productService: params.productService,
       authModalComponent: params.authModalComponent,
+      spinnerBtnPaymentEffect,
     };
 
     this.#eventsListeners = new EventsListeners(paramsEventsListeners);

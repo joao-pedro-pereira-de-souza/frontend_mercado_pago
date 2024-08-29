@@ -38,7 +38,7 @@ export default class PaymentService {
     if (success) {
        this.#gatewayMercadoPago.payment.checkout(data.preference.id);
     } else {
-      alert(message);
+      alert(`Ocorreu o erro abaixo ao abrir o mercado pago: \n ${message}`);
     }
 
   }
