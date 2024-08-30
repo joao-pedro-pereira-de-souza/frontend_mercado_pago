@@ -14,6 +14,6 @@ export default class ProductService {
   }
 
   async getAllGroupedByType() {
-    return this.#api.products.getAllGroupedByType();
+    return (await this.#api.products.getAllGroupedByType())?.data
   }
 }
