@@ -35,11 +35,6 @@ export default class PaymentService {
    * @param {SpinnerBtnPaymentEffect} params.spinnerBtnPaymentEffect
    */
   async execute(params) {
-    console.log(
-      "vai executar a chamada do checkout do mercado pago",
-      JSON.stringify(params)
-    );
-
     const { success, message, data } = params.result;
     if (success) {
 
