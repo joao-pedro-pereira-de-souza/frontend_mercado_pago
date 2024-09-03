@@ -3,6 +3,7 @@ import ProductBeeView from "./productBee.view.js";
 import ProductHoneyPotView from "./productHoneyPot.view.js";
 import ProductHiveView from "./productHive.view.js";
 
+import StorageProducts from '../../../../../services/storage-product.service.js';
 export default class Products {
   /**
    * @type {URLSearchParams}
@@ -50,7 +51,13 @@ export default class Products {
 
     const type_product = this.#params.get("type");
 
-    const products = await this.#productsService.getAllGroupedByType();
+    const products = StorageProducts.get();
+    if (!products) {
+      const response = await this.#productsService.getAllGroupedByType();
+      StorageProducts.save(response);
+      products = response;
+
+    }
 
     if (!type_product || !typesProducts.has(type_product)) {
       console.error("tipo de produto não encontrado");
