@@ -12,7 +12,7 @@ export default class Payment {
    * @returns { void }
    */
   checkout(id_preference) {
-    const checkout = this.#sdk.checkout({
+    this.#sdk.checkout({
       preference: {
         id: id_preference,
       },

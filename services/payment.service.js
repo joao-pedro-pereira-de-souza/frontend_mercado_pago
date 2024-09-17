@@ -39,6 +39,8 @@ export default class PaymentService {
     if (success) {
 
       ScrollPageMoviments.scrollToTopWindow(0);
+
+      console.log('prefenrece', data)
       this.#gatewayMercadoPago.payment.checkout(data.preference.id);
       params.spinnerBtnPaymentEffect.hide();
 
