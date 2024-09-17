@@ -1,16 +1,16 @@
 export default class Payment {
   #sdk;
+
   constructor(sdk) {
     this.#sdk = sdk;
   }
 
-
-   /**
-    *
-    * @param {String} id_preference
-    *
-    * @returns { void }
-    */
+  /**
+   *
+   * @param {String} id_preference
+   *
+   * @returns { void }
+   */
   checkout(id_preference) {
     this.#sdk.checkout({
       preference: {
@@ -18,5 +18,21 @@ export default class Payment {
       },
       autoOpen: true,
     });
+
+    this.#listeners();
+  }
+
+
+  #listeners() {
+    window.addEventListener("message", this.handleClose);
+  }
+
+  handleClose(event) {
+
+    if (event.data.type === "close") {
+
+    }
+
+    window.removeEventListener("message", this.handleClose);
   }
 }

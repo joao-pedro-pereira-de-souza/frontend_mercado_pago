@@ -35,15 +35,12 @@ export default class PaymentService {
    * @param {SpinnerBtnPaymentEffect} params.spinnerBtnPaymentEffect
    */
   async execute(params) {
-    console.log(
-      "vai executar a chamada do checkout do mercado pago",
-      JSON.stringify(params)
-    );
-
     const { success, message, data } = params.result;
     if (success) {
 
       ScrollPageMoviments.scrollToTopWindow(0);
+
+      console.log('prefenrece', data)
       this.#gatewayMercadoPago.payment.checkout(data.preference.id);
       params.spinnerBtnPaymentEffect.hide();
 
